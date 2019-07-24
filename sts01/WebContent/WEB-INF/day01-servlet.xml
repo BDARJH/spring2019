@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+	
+	<!-- bean name에는 항상 /가 맨 먼저 와야 한다 -->
+	<bean name="/index.bit" class="com.bit.controller.IndexController"></bean>
+	<bean name="/main.bit" class="com.bit.controller.MainController">
+		<property name="msg" value="123abc"></property>
+	</bean>
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- prefix와 suffix를 set해주는 setter가 기본적으로 존재, 오타내면 안됨 -->
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+</beans>
