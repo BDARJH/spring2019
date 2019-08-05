@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<context:component-scan base-package="com.bit.day09" />
+	<aop:aspectj-autoproxy />
+<!-- 
+	<bean id="day09Dao" class="com.bit.day09.model.Day09DaoImpl"></bean>
+	
+	<bean id="methodBeforeAdvice" class="com.bit.day09.aop.BeforeRun"></bean>
+	
+	<aop:config>
+		<aop:aspect ref="methodBeforeAdvice">
+			<aop:pointcut id="bitBefore" expression="execution(* com.bit.day09.model.Day09Dao.*Bean(..))" />
+			<aop:before pointcut-ref="bitBefore" method="before" />
+		</aop:aspect>
+		<aop:aspect ref="methodBeforeAdvice">
+			<aop:pointcut id="bitBefore" expression="execution(* com.bit.day09.model.Day09Dao.*1(..))" />
+			<aop:after-returning returning="result" pointcut-ref="bitBefore" method="after" />
+		</aop:aspect>
+		<aop:aspect ref="methodBeforeAdvice">
+			<aop:pointcut id="bitBefore" expression="execution(* com.bit.day09.model.Day09Dao.*2(..))" />
+			<aop:around pointcut-ref="bitBefore" method="around" />
+		</aop:aspect>
+	</aop:config>
+ -->	
+
+	<!-- 	
+	<bean id="methodBeforeAdvice" class="com.bit.day09.aop.BeforeRun"></bean>
+	
+	<bean id="afterReturningAdvice" class="com.bit.day09.aop.AfterRun"></bean>
+	
+	<bean id="throwsAdvice" class="com.bit.day09.aop.AfterExceptionRun"></bean>
+	
+	<bean id="methodInterceptor" class="com.bit.day09.aop.AroundRun"></bean>
+	
+	<bean id="pointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+		<property name="pattern" value=".*.*"></property>
+	</bean>
+	
+	<bean id="pointcutAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="pointcut" ref="pointcut"></property>
+		<property name="advice" ref="methodInterceptor"></property>
+	</bean>
+	
+	proxy를 자동으로 만들어줌
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"></bean>
+	
+	<bean id="proxyFactoryBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="day09Dao" />
+		<property name="interceptorNames">
+			<array>
+				<value>pointcutAdvisor</value>
+				<value>throwsAdvice</value>
+			 	<value>afterReturningAdvice</value>
+				<value>methodBeforeAdvice</value>
+			 	
+			</array>
+		</property>
+	</bean> -->
+</beans>
